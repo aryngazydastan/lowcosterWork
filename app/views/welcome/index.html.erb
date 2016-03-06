@@ -1,0 +1,206 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Lowcoster</title>
+  <meta name="description" content="lowcoster-сервис заказа такси в городе Алматы, самые дешевые цены.">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  
+  <style>
+	body {
+		background: #eee;
+		text-align: center;
+		
+		border-radius: 15px;
+	}
+
+	#main {
+		width: 350px;
+		margin: auto;
+		text-align: left;
+		background: #462B43;
+		padding: 50px 60px;
+		border: solid #ddd;
+		border-width: 0 1px 1px 1px;
+		border-radius: 10px;
+		padding-top: 20px;
+		padding-left: 10px;
+	}
+
+	h3 {
+		border-radius: 5px #0DC0BE;
+		height: 70px;
+		text-align: center;
+		color: white;
+		width: 200px;
+	}
+
+	#results-table {
+		border-collapse: collapse;
+		border-radius: 25px;
+		width: 400px;
+		height: 10px;
+	}
+
+	h4 {
+		background: #0DC0BE;
+		border-radius: 10px;
+		height: 25px;
+		text-align: center;
+		padding-top: 13px;
+		color: white;
+		width: 135px;
+	}
+
+	h6 {
+		padding-left: 40px;
+		color: white;
+	}
+
+
+	tr {
+		border: 10px solid #462B43;
+		border-radius: 50px;
+		height: 70px;
+		padding-top: 7px;
+		padding-left: 50px;
+		text-align: center;
+		
+	}
+
+	td {
+		background: white;
+		border: 10px solid #462B43;
+		border-radius: 20px;
+		height: 50px;
+		padding-top: 7px;
+		text-align: center;
+	}
+
+	#1 {
+		
+	}
+
+	#header {
+		padding-left: 10px;
+	}
+
+	#links {
+		padding-left: 7px;
+	}
+
+  </style>
+</head>
+
+<body>
+  <div id="main">
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Styles -->	
+<style style="text/css">
+.example1 {
+ height: 50px;	
+ overflow: hidden;
+ margin-right: -13.5%;
+ padding-left: 15px;
+}
+.example1 h3 {
+ 
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: example1 15s linear infinite;
+ -webkit-animation: example1 15s linear infinite;
+ animation: example1 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes example1 {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes example1 {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+</style>
+	<div class="example1">
+<h3>чтобы стать водителем, позвоните оператору</h3>
+</div>
+<table>
+<th><%= image_tag("verified1.png", :style => 'width: 112px; height: 32px; padding-left: 20px;') %></th>
+<th><%= image_tag("verified2.png", :style => 'width: 112px; height: 32px;') %></th>
+<th><%= image_tag("verified3.png", :style => 'width: 112px; height: 32px;') %></th>
+</table>
+    <h3><table id="header">
+    	<tr>
+    		<th align="center"><%= image_tag("Group.png", :style => 'width: 123px; height: 54px;') %></th>
+    		<th><%= image_tag("Apple.png", :style => 'width: 28px; height: 34px; padding-left: 150px; padding-bottom: 10px;') %></th>
+    		<th><%= image_tag("Android.png", :style => 'width: 31px; height: 34px; padding-left: 10px; padding-bottom: 5px;') %></th>
+    	</tr></table>
+    	
+    		</h3>
+    		<h6 align="center">прямая трансляция заказов, сегодня <%= Time.now.strftime("%m.%d.%Y") %></h6>
+	  <h5><table id="results-table">
+		
+		</table><h5>
+
+		<h6 align="center">все права зарегистрированы и находятся под защитой законодательства страны присутствия</h6>
+	</div>
+
+
+  
+<script type="text/javascript">
+Parse.initialize("VkkhHPeQopcKg0FFI80fda03bfXpyLuNWVn5AFEI", "4om2ITt3WkJg3g4DNLhUIIMIbJvxR0GbI08Aogti");
+var GameScore = Parse.Object.extend("Client");
+var query = new Parse.Query(GameScore);
+query.find({
+    success: function (results) {
+        for (var i = 0; i < results.length; i++) {
+            var object = results[i];
+			var cost = object.get('cost');
+			var from = object.get('from');
+			var to = object.get('to');
+			var address =  object.get('address');
+			var date = object.get('createdAt').toLocaleString();
+				(function ($) {
+					$('#results-table').append('<tr><td id="1">' + from + '</br>' + to + '</td><td id="2">'  + cost + ' тенге / необходимо скачать приложение' + '</td></tr>');
+
+				})(jQuery);
+        }
+    },
+    error: function (error) {
+        alert("Error: " + error.code + " " + error.message);
+    }
+});
+  </script>
+
+</body>
+
+</html>
